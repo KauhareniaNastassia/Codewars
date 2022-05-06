@@ -1,0 +1,6 @@
+function getAge(inputString){
+  let res = inputString.split(' ');
+  for (let i in res) {
+    return res[i] != NaN ? +res[i] : '';
+  }
+}
