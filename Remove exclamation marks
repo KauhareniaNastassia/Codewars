@@ -1,0 +1,8 @@
+function removeExclamationMarks(s) {
+  let sentence = "Hello World!";
+  let excMarks = /!/g;
+ 
+  
+  
+  return s = sentence.replace(excMarks, '');
+}
