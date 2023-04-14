@@ -13,7 +13,6 @@ String.prototype.endsWith = function(substring) {};
 str.endsWith(str1)) -->  false
 str.endsWith(str2)) -->  true*/
 
-
 const str = "Каждый охотник желает знать";
 
 String.prototype.endsWith = function(substring) {
@@ -28,3 +27,6 @@ String.prototype.endsWith = function(substring) {
 
 console.log(str.endsWith("скрипт"))
 console.log(str.endsWith("знать"))
+
+
+//=============
