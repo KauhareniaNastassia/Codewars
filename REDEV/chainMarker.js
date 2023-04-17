@@ -26,19 +26,40 @@ chainMaker.addLink(1).addLink(2).addLink(3).finishChain()
 chainMaker.addLink(1).addLink(2).removeLink(1).addLink(3).finishChain()
 --> '(2) ~~ (3)'
 chainMaker.addLink(1).addLink(2).reverseChain().addLink(3).finishChain()
---> '(2) ~~ (1) ~~ (3)'**Преобразовать массив**
-Ваша задача - реализовать функцию transform(arr),
-    которая принимает массив и возвращает преобразованный массив
-на основе управляющих последовательностей, содержащихся в arr.
-    Управляющие последовательности - это определенные строковые элементы
-указанного массива:
+--> '(2) ~~ (1) ~~ (3)'
+*/
 
-    **--discard-next** исключает следующий элемент массива из преобразованного массива.
-**--discard-prev** исключает предыдущий элемент массива из преобразованного массива.
-**--double-next** удваивает следующий элемент массива в преобразованном массиве.
-**--double-prev** удваивает предыдущий элемент массива в преобразованном массиве.
 
-    Например:
+let chainMaker = {
+    chain: [],
+    getLength() {
+        return this.chain.length
+    },
+    addLink(value) {
+        let link = '( )'
+        if (value) {
+            link = '(' + value + ')'
+        }
+        this.chain.push(link)
+        return this
+    },
+    removeLink(position) {
+        if (position < 1 || position > this.getLength()) {
+            throw Error
+        } else {
+            this.chain.splice(position - 1, 1)
+            return this
+        }
+    },
+    reverseChain() {
+        this.chain.reverse()
+        return this
+    },
+    finishChain() {
+        let finalResult = this.chain.join('~~')
+        this.chain = []
+        return finalResult
+    }
+}
 
-transform ([1, 3, '--double-next', 4]) --> [1, 3, 4, 4]
-transform ([1, 3, '--discard-prev', 4]) --> [1, 4]*/
+console.log(chainMaker.addLink(1).addLink(2).addLink(3).finishChain())
