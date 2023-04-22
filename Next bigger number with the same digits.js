@@ -9,8 +9,7 @@ function nextBigger(n) {
         } else {
             for (let i = 0; i < s.length; i++) {
                 let h = s[i];
-                for (let t of nextBigger(s.substring(0, i) +
-                    s.substring(i + 1))) yield h + t;
+                for (let t of nextBigger(s.substring(0, i) + s.substring(i + 1))) yield h + t;
             }
         }
     }
