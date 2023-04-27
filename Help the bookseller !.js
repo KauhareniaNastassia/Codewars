@@ -2,7 +2,7 @@ function stockList(listOfArt, listOfCat){
 
     let arrOfArt = []
     let arrOfNums = []
-let finalArr = []
+    let finalArr = []
     for (let i = 0; i < listOfArt.length; i++) {
         arrOfArt.push(listOfArt[i].split(' ')[0])
         arrOfNums.push(listOfArt[i].split(' ')[1])
